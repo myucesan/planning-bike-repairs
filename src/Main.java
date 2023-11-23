@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Main {
 //    public static void main(String[] args) {
@@ -11,7 +10,6 @@ public class Main {
         int employeesNeeded = 1;
         Bike[] bikes = new Bike[n + 1]; // n + 1 because zero-indexed
         for (int i = 1; i <= n; i++) {
-            int finishingTime = starttimes[i] + durations[i];
             bikes[i] = new Bike(starttimes[i], durations[i]);
         }
         Arrays.sort(bikes, 1, n + 1); // earliest finishing time first
@@ -43,9 +41,6 @@ class Bike implements Comparable<Bike> {
         return startTime;
     }
 
-    public int getDuration() {
-        return duration;
-    }
 
     public int getFinishingTime() {
         return finishingTime;
