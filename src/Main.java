@@ -7,22 +7,20 @@ public class Main {
 //    }
 
     public static int fixMyBikesPlease(int n, int[] starttimes, int[] durations) {
-        int employeesNeeded = 0;
+        if (n == 0) return 0;
+        int employeesNeeded = 1;
         Bike[] bikes = new Bike[n + 1]; // n + 1 because zero-indexed
-
         for (int i = 1; i <= n; i++) {
             int finishingTime = starttimes[i] + durations[i];
             bikes[i] = new Bike(starttimes[i], durations[i]);
         }
         Arrays.sort(bikes, 1, n + 1); // earliest finishing time first
-
-//        for (Bike b : bikes) {
-//            if (b == null) continue;
-//            System.out.println(b.getFinishingTime());
-//        } used to verify correct ordering
-        for (int i = 1; i < n; i++) {
-            if (bikes[i].getFinishingTime() > bikes[i+1].getFinishingTime()) {
+        int currentEndtime = bikes[1].getFinishingTime();
+        for (int i = 2; i <= n; i++) {
+            if (currentEndtime > bikes[i].getStartTime()) {
                 employeesNeeded++;
+            } else {
+                currentEndtime = bikes[i].getFinishingTime();
             }
         }
 
@@ -55,6 +53,6 @@ class Bike implements Comparable<Bike> {
 
     @Override
     public int compareTo(Bike b) {
-        return Integer.compare(this.startTime, b.startTime);
+        return Integer.compare(this.getFinishingTime(), b.getFinishingTime());
     }
 }
