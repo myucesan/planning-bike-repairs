@@ -1,0 +1,3 @@
+Mike runs a bike repair service for students. Students can plan a time to bring in their bike on his website, where they also enter a description of what is broken. Mike is very good at his job and he can flawlessly predict how long each repair will take. To cater to the need of students to have a working bike at all time, he promises his customers to finish the repair as soon as possible after the bike is brought in.
+
+Now Mike wants to know how many of his employees to schedule for a day. He has the list of repairs for this day and he wants you to develop an algorithm to tell him how many people he needs. For each repair you get the start time, as well as the duration.
